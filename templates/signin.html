@@ -1,0 +1,54 @@
+{% extends "layout.html" %} {% block body %}
+<div class="main_div">
+  <div class="title">Login</div>
+  <div id="success-message" class="hidden"></div>
+  <div id="error-message" class="hidden"></div>
+
+  <form method="post" id="login-form">
+    <div class="input_box">
+      <label for="username">Username</label>
+      <input
+        type="email"
+        placeholder="Enter a username"
+        id="username"
+        name="username"
+      />
+    </div>
+    <div class="input_box">
+      <label for="pass">Passoword</label>
+      <input
+        type="password"
+        placeholder="Enter a password"
+        id="pass"
+        name="password"
+      />
+      <div class="icon" id="password_toggle" onclick="myPassowrd()">
+        <i class="bx bx-show" id="show-password-icon"></i>
+        <i class="bx bxs-hide" id="hide-password-icon"></i>
+      </div>
+    </div>
+    <!-- <div class="option_div">
+      <div class="forget_div">
+        <a href="#">Forgot Password?</a>
+      </div>
+    </div> -->
+    <div class="btn-submit option_div">
+      <button type="submit" class="btn">Login</button>
+    </div>
+    <div class="signup_div">
+      Don't have an account?
+      <a href="/register">Sign Up</a>
+    </div>
+  </form>
+</div>
+<!--css-->
+{% block more_css %}
+<link rel="stylesheet" href="{{url_for('static',path='css/signin.css')}}" />
+{% endblock %}
+<!--css-->
+<!--Js -->
+{% block more_js %}
+<script src="{{url_for('static',path='js/signin.js')}}"></script>
+{% endblock %}
+<!--Js -->
+{% endblock %}

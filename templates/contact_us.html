@@ -1,0 +1,77 @@
+{% extends "layout.html" %} {% block body %}
+<div class="container">
+  <div class="content">
+    <div class="left-side">
+      <div class="address details">
+        <i class="fas fa-map-marker-alt"></i>
+        <div class="topic">Address</div>
+        <div class="text-one">23-Deccan</div>
+        <div class="text-two">Pune 06</div>
+      </div>
+      <div class="email details">
+        <i class="fas fa-envelope"></i>
+        <div class="topic">Email</div>
+        <div class="text-one">ganuread@gmail.com</div>
+      </div>
+    </div>
+    <div class="right-side">
+      <div id="success-message" class="hidden"></div>
+
+      <div id="error-message" class="hidden"></div>
+      <div class="topic-text">Send us a message</div>
+      <p>
+        Have questions ? Contact us via our contact form, and we’ll get back to
+        you shortly. Your message is important to us, and we are here to help.
+      </p>
+      <form method="post" id="contact-form">
+        <div class="input-box input-control">
+          <input
+            type="text"
+            placeholder="Enter your name"
+            name="name"
+            id="name-fields"
+          />
+        </div>
+        <div class="input-box input-control">
+          <input
+            type="tel"
+            placeholder="Enter your mobile"
+            name="mobile"
+            id="mobile-fields"
+          />
+        </div>
+        <div class="input-box input-control">
+          <input
+            type="email"
+            placeholder="Enter your email"
+            name="email"
+            id="email-fields"
+          />
+        </div>
+        <div class="input-box input-control">
+          <textarea
+            placeholder="Write your message here"
+            rows="8"
+            cols="50"
+            name="messages"
+            id="messages-fields"
+          ></textarea>
+        </div>
+        <div class="button">
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!--css-->
+{% block more_css %}
+<link rel="stylesheet" href="{{url_for('static',path='css/contact_us.css')}}" />
+{% endblock %}
+<!--css-->
+<!--js-->
+{% block more_js %}
+<script src="{{url_for('static',path='js/contact_us.js')}}"></script>
+{% endblock %}
+<!--js-->
+{% endblock %}

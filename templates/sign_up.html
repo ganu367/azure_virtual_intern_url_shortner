@@ -1,0 +1,66 @@
+{% extends "layout.html" %} {% block body %}
+<div class="main_div">
+  <div class="title">Sign Up</div>
+  <div id="success-message" class="hidden"></div>
+  <div id="error-message" class="hidden"></div>
+
+  <form method="post" id="sign-up-form">
+    <div class="input_box">
+      <label for="name">Name</label>
+      <input type="text" placeholder="Enter your name" id="name" name="name" />
+    </div>
+    <div class="input_box">
+      <label for="username">Username</label>
+      <input
+        type="email"
+        placeholder="Enter a username"
+        id="username"
+        name="username"
+      />
+    </div>
+    <div class="input_box">
+      <label for="pass">Passoword</label>
+      <input
+        type="password"
+        placeholder="Enter a password"
+        id="pass"
+        name="password"
+      />
+      <div class="icon" id="password_toggle" onclick="createPassowrd()">
+        <i class="bx bx-show" id="show-pass-icon"></i>
+        <i class="bx bxs-hide" id="hide-pass-icon"></i>
+      </div>
+    </div>
+    <div class="input_box">
+      <label for="re-pass">Confirm Passoword</label>
+      <input
+        type="password"
+        placeholder="Confirm password"
+        id="re-pass"
+        name="re-password"
+      />
+      <div class="icon" id="password_toggle" onclick="rePassowrd()">
+        <i class="bx bx-show" id="show-re-pass-icon"></i>
+        <i class="bx bxs-hide" id="hide-re-pass-icon"></i>
+      </div>
+    </div>
+    <div class="btn-submit">
+      <button type="submit" class="btn">Sign Up</button>
+    </div>
+    <div class="login_div">
+      Already have an account?
+      <a href="/login">Login</a>
+    </div>
+  </form>
+</div>
+<!--css-->
+{% block more_css %}
+<link rel="stylesheet" href="{{url_for('static',path='css/sign_up.css')}}" />
+{% endblock %}
+<!--css-->
+<!--Js -->
+{% block more_js %}
+<script src="{{url_for('static',path='js/sign_up.js')}}"></script>
+{% endblock %}
+<!--Js -->
+{% endblock %}

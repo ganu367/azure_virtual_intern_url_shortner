@@ -1,0 +1,157 @@
+{% extends "layout.html" %} {% block body %}
+
+<section class="intro">
+  <div class="intro-row">
+    <h1>
+      <!-- Shareble, <br />
+      Customizable & <span> URL </span> <br />
+      Management tools -->
+     Create short URL  <br />with brand<span>l</span>y
+    </h1>
+    <p>
+      Explore our URL shortener tools that prioritize security and scalability.
+      Protect your links with strong encryption, and tailor the settings to your
+      specific needs.
+    </p>
+    <div class="btn-items">
+      <input
+        type="url"
+        class="link-enter"
+        placeholder="Paste here long url"
+        id="lng-url-text"
+        required
+      />
+      <button class="btn" id="shrt-lnk-btn" type="submit">Short It</button>
+      <div id="error-message" class="hidden"></div>
+    </div>
+    <div class="btn-items" id="cpy-url-div">
+      <input
+        type="url"
+        class="link-enter"
+        id="shrt-url-text"
+        value=""
+        readonly
+      />
+      <button class="btn" id="shrt-cpy-btn">
+        <i class="bx bxs-copy-alt"></i>
+      </button>
+    </div>
+  </div>
+  <div class="img-intro">
+    <img
+      src="{{url_for('static',path='images/url_short.svg')}}"
+      alt=""
+      srcset=""
+    />
+  </div>
+</section>
+<hr />
+<section class="features" id="services">
+  <!-- <h1>Our  Features</h1> -->
+
+  <div class="fs-row">
+    <div class="fs-items">
+      <div class="fs-icons">
+        <i class="bx bx-analyse"></i>
+      </div>
+      <h2 class="sub-head">Click tracking and analytics</h2>
+      <p class="sub-para">
+        Find insights through click tracking and analytics.
+      </p>
+    </div>
+    <div class="fs-items">
+      <div class="fs-icons">
+        <i class="bx bxs-customize"></i>
+      </div>
+      <h2 class="sub-head">Customizable Links</h2>
+      <p class="sub-para">
+        Power your online presence with customizable links.
+      </p>
+    </div>
+    <div class="fs-items">
+      <div class="fs-icons">
+        <i class="bx bxs-share"></i>
+      </div>
+      <h2 class="sub-head">Easy to Share</h2>
+      <p class="sub-para">
+        Optimize links and connections with easy-to-share URLs
+      </p>
+    </div>
+  </div>
+</section>
+<!-- <section class="news-letter">
+  <div class="new-letter-box">
+    <h2 class="sub-head">Subscribe to our Newsletter</h2>
+    <p class="sub-para">
+      Stay in the loop! Subscribe to our newsletter to get the latest update and
+      exclusives,insights,delivered right to your email inbox.
+    </p>
+  </div>
+  <div class="btn-items">
+    <input type="text" name="em-add" placeholder="Enter valid email address" />
+    <a href="" class="btn">Submit</a>
+  </div>
+</section> -->
+<hr />
+<!-- faq -->
+<section id="faq-section">
+  <div class="faqs-container">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="questions-container">
+      <div class="content-container">
+        <div class="faq-header">
+          <h3>How do I purchase a membership?</h3>
+          <span class="open active">+</span>
+          <span class="close">-</span>
+        </div>
+        <div class="content">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa
+            voluptatem voluptatibus temporibus nemo amet tempore aperiam
+            pariatur laboriosam qui vel!
+          </p>
+        </div>
+      </div>
+
+      <div class="content-container">
+        <div class="faq-header">
+          <h3>Which platforms are supported?</h3>
+          <span class="open active">+</span>
+          <span class="close">-</span>
+        </div>
+
+        <div class="content">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa
+            voluptatem voluptatibus temporibus nemo amet tempore aperiam
+            pariatur laboriosam qui vel!
+          </p>
+        </div>
+      </div>
+
+      <div class="content-container">
+        <div class="faq-header">
+          <h3>How to cancel the subscription?</h3>
+          <span class="open active">+</span>
+          <span class="close">-</span>
+        </div>
+
+        <div class="content">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet,
+            veniam!
+          </p>
+
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa
+            voluptatem voluptatibus temporibus nemo amet tempore aperiam
+            pariatur laboriosam qui vel!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
