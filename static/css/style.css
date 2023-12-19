@@ -361,6 +361,9 @@ h1{
   .faqs-container h2 {
     padding: 4px 32px;
     font-size: 28px;
+    text-align: center;
+    margin-bottom: 3.5rem;
+    align-items: center;
   }
   .content-container{
     padding: 0.5rem 0.5rem;
@@ -418,11 +421,11 @@ h1{
 
 #chatButton {
     position: fixed;
-    bottom: 20px;
+    bottom: 40px;
     right: 20px;
     background-color:dodgerblue;
     color: #ffffff;
-    padding: 10px;
+    padding: 12px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
