@@ -6,7 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from database import engine
 import models
 from internal import authentication, registration
-from routers import url, contact_us, utility,bot
+from routers import url, contact_us, utility
 
 
 models.Base.metadata.create_all(engine)
@@ -65,4 +65,3 @@ app.include_router(registration.router)
 app.include_router(url.router)
 app.include_router(contact_us.router)
 app.include_router(utility.router)
-app.include_router(bot.router)
