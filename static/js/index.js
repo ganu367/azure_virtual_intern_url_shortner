@@ -2,6 +2,8 @@
 const shortLinkBtn = document.getElementById('shrt-lnk-btn');
 const copyItBtn = document.getElementById('shrt-cpy-btn');
 
+console.log("The Build : ", shortLinkBtn)
+
 //text
 const shortUrlDiv = document.getElementById('cpy-url-div');
 const shortUrlText = document.getElementById('shrt-url-text');
