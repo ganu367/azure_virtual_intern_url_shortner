@@ -46,7 +46,7 @@ def createUShort(url_fields: schemas.UrlCreate, db: Session = Depends(get_db)):
             db.commit()
             db.url = key_string
             db.refresh(new_short_url)
-            return {"url_short": f"http://127.0.0.1:8000/{url_random_key}", "status": 200}
+            return {"url_short": f"https://brandly.azurewebsites.net/{url_random_key}", "status": 200}
         except Exception as e:
             db.rollback()
             raise HTTPException(
