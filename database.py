@@ -12,7 +12,7 @@ import psycopg2
 # SQLALCHEMY_DATABASE_URL = os.getenv('SQLITE_URL')
 
 
-SQLALCHEMY_DATABASE_URL = 'postgresql+psycopg2://fastapiganu:brandly$1234@fastapi-database.postgres.database.azure.com/brandly_url?sslmode=require'
+SQLALCHEMY_DATABASE_URL = 'postgresql+psycopg2://fastapiganu:brandly#1234@fastapi-database.postgres.database.azure.com/brandly_url?sslmode=require'
 
 engine = create_engine(
     SQLALCHEMY_DATABASE_URL
