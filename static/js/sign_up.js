@@ -26,7 +26,7 @@ sign_up_form.addEventListener('submit', (event) => {
 
     console.log(data)
 
-    fetch('http://127.0.0.1:8000/auth/register', {
+    fetch('https://brandly.azurewebsites.net/auth/register', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
