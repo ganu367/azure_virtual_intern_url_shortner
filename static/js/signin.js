@@ -124,7 +124,7 @@ function myPassowrd() {
         passwordShowIcon.style.display = "none"
         passwordHideIcon.style.display = "block"
 
-    } else {
+    } else { 
         passwordInput.type = "password";
         passwordShowIcon.style.display = "block"
         passwordHideIcon.style.display = "none"
