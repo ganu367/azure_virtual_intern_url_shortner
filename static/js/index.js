@@ -8,7 +8,7 @@ const shortUrlDiv = document.getElementById('cpy-url-div');
 const shortUrlText = document.getElementById('shrt-url-text');
 
 shortLinkBtn.addEventListener('click', function() {
-    const longUrlInput = document.getElementById('#lng-url-text');
+    const longUrlInput = document.getElementById('lng-url-text');
     const originalUrl = longUrlInput.value; 
   
     fetch('https://brandly.azurewebsites.net/api/home/app', {
