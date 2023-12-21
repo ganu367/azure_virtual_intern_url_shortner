@@ -1,5 +1,5 @@
 //btn
-const shortLinkBtn = document.querySelector('#shrt-lnk-btn');
+const shortLinkBtn = document.getElementById('shrt-lnk-btn');
 const copyItBtn = document.getElementById('shrt-cpy-btn');
 
 //text
@@ -10,7 +10,7 @@ shortLinkBtn.addEventListener('click', function() {
     const longUrlInput = document.querySelector('#lng-url-text');
     const originalUrl = longUrlInput.value; 
   
-    fetch('http://127.0.0.1:8000/api/home/app', {
+    fetch('/api/home/app', {
       method: 'POST',
       body: JSON.stringify({ original_url: originalUrl }),
       headers: {
