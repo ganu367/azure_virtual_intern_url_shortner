@@ -19,7 +19,7 @@ signForm.addEventListener('submit', (event) => {
 
     console.log(data)
 
-    fetch('http://127.0.0.1:8000/auth/login', {
+    fetch('https://brandly.azurewebsites.net/auth/login', {
       method: 'POST',
       redirect: 'follow',
       headers: {
