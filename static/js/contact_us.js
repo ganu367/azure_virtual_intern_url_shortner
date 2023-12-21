@@ -22,7 +22,7 @@ form.addEventListener('submit', (event) => {
   
     fetch('https://brandly.azurewebsites.net/api/contact-us', {
       method: 'POST',
-      body: JSON.stringify(data),
+      body: JSON.stringify(data), 
       headers: {
         'Content-Type': 'application/json'
       }
