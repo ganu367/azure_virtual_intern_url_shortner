@@ -1,6 +1,6 @@
 var signForm = document.getElementById('login-form');
 var successMessage = document.getElementById('success-message');
-var errorMessage = document.getElementById('error-message');
+var errorMessage = document.getElementById('error-message'); 
 
 var username_field = document.getElementById('username');
 var password_field = document.getElementById('pass');
