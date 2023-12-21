@@ -20,7 +20,7 @@ form.addEventListener('submit', (event) => {
     const data = {name:name, email:email, mobile_number:mobile, messages:messages};
     // console.log(data)
   
-    fetch('http://127.0.0.1:8000/api/contact-us', {
+    fetch('https://brandly.azurewebsites.net/api/contact-us', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
