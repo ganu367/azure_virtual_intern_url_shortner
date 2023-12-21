@@ -2,7 +2,6 @@
 const shortLinkBtn = document.getElementById('shrt-lnk-btn');
 const copyItBtn = document.getElementById('shrt-cpy-btn');
 
-console.log("The Build : ", shortLinkBtn)
 
 //text
 const shortUrlDiv = document.getElementById('cpy-url-div');
@@ -12,7 +11,7 @@ shortLinkBtn.addEventListener('click', function() {
     const longUrlInput = document.getElementById('#lng-url-text');
     const originalUrl = longUrlInput.value; 
   
-    fetch('/api/home/app', {
+    fetch('https://brandly.azurewebsites.net/api/home/app', {
       method: 'POST',
       body: JSON.stringify({ original_url: originalUrl }),
       headers: {
