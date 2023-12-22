@@ -1,5 +1,4 @@
 {% extends "layout.html" %} {% block body %}
- <link rel="stylesheet" href="https://brandly.azurewebsites.net/static/css/signin.css">
 <div class="main_div">
   <div class="title">Login</div>
   <div id="success-message" class="hidden"></div>
@@ -42,16 +41,16 @@
     </div>
   </form>
 </div>
-<!--css-->
-<!-- {% block more_css %}
-<link rel="stylesheet" href="{{url_for('static',path='css/signin.css')}}" />
-{% endblock %} -->
+ <!--css-->
+{% block more_css %}
+ <link rel="stylesheet" href="https://brandly.azurewebsites.net/static/css/signin.css">
+{% endblock %}
 
 <!--css-->
 <!--Js -->
-<!-- {% block more_js %}
-<script src="{{url_for('static',path='js/signin.js')}}"></script>
-{% endblock %} -->
+
+{% block more_js %}
 <script src="https://brandly.azurewebsites.net/static/js/signin.js"></script> 
-<!--Js -->
+{% endblock %} 
+
 {% endblock %}
