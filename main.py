@@ -21,7 +21,6 @@ connect = load_dotenv()
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 ALGORITHM = os.getenv('ALGORITHM')
-
 get_db = database.get_db
 
 models.Base.metadata.create_all(engine)

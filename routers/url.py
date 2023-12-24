@@ -48,7 +48,7 @@ def createUShort(url_fields: schemas.UrlCreate, db: Session = Depends(get_db)):
 
         try:
             new_short_url = models.URL(
-                target_url=url_fields.original_url, key=url_random_key)
+                target_url=url_fields.original_url,title =url_fields.title, key=url_random_key)
 
             db.add(new_short_url)
             db.commit()
