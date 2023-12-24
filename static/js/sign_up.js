@@ -24,7 +24,6 @@ sign_up_form.addEventListener('submit', (event) => {
       confirm_password: conPassValue,
     };
 
-    console.log(data)
 
     fetch('https://brandly.azurewebsites.net/auth/register', {
       method: 'POST',
@@ -78,7 +77,7 @@ sign_up_form.addEventListener('submit', (event) => {
       var errorMessage = document.getElementById('error-message');
       successMessage.style.display = "none";
       errorMessage.style.display = "none";
-    }, 5000);
+    }, 1500);
   }
 });
 

@@ -12,15 +12,6 @@ import oauth2
 from fastapi.security import OAuth2PasswordRequestForm
 import os
 from typing import Optional
-from jose import jwt
-from dotenv import dotenv_values, load_dotenv
-from datetime import datetime,timedelta
-
-config = dotenv_values(".env")
-connect = load_dotenv()
-
-SECRET_KEY = os.getenv('SECRET_KEY')
-ALGORITHM = os.getenv('ALGORITHM')
 
 router = APIRouter(prefix="/auth", tags=["Authentication"])
 
@@ -54,13 +45,11 @@ def login(response: Response, request: Request, request_detail: OAuth2PasswordRe
             response = RedirectResponse(
                 url='/dashboard', status_code=status.HTTP_302_FOUND)
             
-            # response.set_cookie(key="access_token",
-            #                     value=f"Bearer {jwt_token}", httponly=True)
+           
             response.set_cookie(
             key="access_token",
             value=f"Bearer {jwt_token}",
             httponly=True,
-            expires=expires,
             secure=True,
             samesite="none",
         )

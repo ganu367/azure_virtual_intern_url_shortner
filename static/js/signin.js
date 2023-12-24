@@ -17,8 +17,6 @@ signForm.addEventListener('submit', (event) => {
       password: document.getElementById('pass').value,
     };
 
-    console.log(data)
-
     fetch('https://brandly.azurewebsites.net/auth/login', {
       method: 'POST',
       redirect: 'follow',
@@ -76,7 +74,7 @@ signForm.addEventListener('submit', (event) => {
       var errorMessage = document.getElementById('error-message');
       successMessage.style.display = "none";
       errorMessage.style.display = "none";
-    }, 5000);
+    }, 1500);
   }
 });
 

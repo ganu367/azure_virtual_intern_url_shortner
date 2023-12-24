@@ -57,7 +57,7 @@ create_form.addEventListener('submit', (event) => {
     setTimeout(() => {
       successMessage.style.display = "none";
       errorMessage.style.display = "none";
-    }, 5000);
+    }, 1500);
   })
   .catch((error) => {
     const errorMessage = document.getElementById('error-message');
@@ -71,7 +71,7 @@ create_form.addEventListener('submit', (event) => {
     // Hide messages after 5 seconds
     setTimeout(() => {
       errorMessage.style.display = "none";
-    }, 5000);
+    }, 1500);
   });
 });
 

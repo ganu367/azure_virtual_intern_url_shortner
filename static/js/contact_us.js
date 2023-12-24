@@ -60,7 +60,7 @@ form.addEventListener('submit', (event) => {
     var errorMessage = document.getElementById('error-message');
     successMessage.style.display = "none";
     errorMessage.style.display = "none";
-  }, 5000);
+  }, 1500);
   }
 });
 

@@ -28,6 +28,7 @@ def create_user(response: Response, request: Request, user_field: schemas.UserCr
         if (user_field.password == user_field.confirm_password):
 
             try:
+                
                 new_user = models.User(name=user_field.name, username=user_field.username, created_by=user_field.username,
                                        password=hashing.Hash.bcrypt(user_field.password))
                 db.add(new_user)
@@ -37,13 +38,12 @@ def create_user(response: Response, request: Request, user_field: schemas.UserCr
                 jwt_token = tokens.create_access_token(data={"user": {
                     "username": user_field.username, "isAdmin": False}})
 
-                # response = RedirectResponse(
-                #     "/auth/login", status_code=status.HTTP_302_FOUND)
 
                 response.set_cookie(key="access_token",
                                     value=f"Bearer {jwt_token}", httponly=True)
 
                 return {"response": response, "status": 200}
+            
             except Exception as e:
                 db.rollback()
                 raise HTTPException(status_code=status.HTTP_302_FOUND,

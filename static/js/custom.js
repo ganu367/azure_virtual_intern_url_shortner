@@ -47,7 +47,7 @@ update_form.addEventListener('submit', (event) => {
     setTimeout(() => {
       successMessage.style.display = "none";
       errorMessage.style.display = "none";
-    }, 5000);
+    }, 1500);
   })
   .catch((error) => {
     const errorMessage = document.getElementById('error-message');
