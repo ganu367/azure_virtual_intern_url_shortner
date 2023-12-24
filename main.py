@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Request, status
+from fastapi import FastAPI, Request, status,Depends,HTTPException,Cookie
 from fastapi.responses import RedirectResponse, HTMLResponse,JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -7,7 +7,22 @@ from database import engine
 import models
 from internal import authentication, registration
 from routers import url, contact_us, utility
+import oauth2
+import schemas
+from jose import JWTError, jwt
+from sqlalchemy.orm import Session
+import database
+from typing import Optional
+import os
+from dotenv import dotenv_values, load_dotenv
 
+config = dotenv_values(".env")
+connect = load_dotenv()
+
+SECRET_KEY = os.getenv('SECRET_KEY')
+ALGORITHM = os.getenv('ALGORITHM')
+
+get_db = database.get_db
 
 models.Base.metadata.create_all(engine)
 
@@ -40,11 +55,6 @@ def loginUser(request: Request):
     return templates.TemplateResponse("sign_up.html", {"request": request, "title": " Sign Up"})
 
 
-@app.get("/dashboard", response_class=HTMLResponse)
-def dashboard(request: Request):
-    return templates.TemplateResponse("dashboard.html", {"request": request, "title": "Dashboard - Manage Your Links"})
-
-
 @app.get("/services", response_class=HTMLResponse)
 def services(request: Request):
     return templates.TemplateResponse("services.html", {"request": request, "title": "Our Services"})
@@ -56,6 +66,63 @@ def about_us(request: Request):
 @app.get("/contact_us", response_class=HTMLResponse)
 def contactUs(request: Request):
     return templates.TemplateResponse("contact_us.html", {"request": request, "title": "Contact Us"})
+
+
+@app.get("/dashboard", response_class=HTMLResponse)
+def dashboard(request: Request,db: Session = Depends(get_db),access_token: Optional[str] = Cookie(None),):
+
+    if access_token is None:
+        return RedirectResponse("/login")
+    
+    token_value = access_token.replace("Bearer ", "")
+    user_info = jwt.decode(token_value, SECRET_KEY, algorithms=[ALGORITHM])
+
+    username = user_info["user"]["username"]
+   
+    user = db.query(models.User).filter(models.User.username==username).first()
+    get_url = db.query(models.URL).filter(models.URL.user_id ==user.id).all()
+
+    return templates.TemplateResponse(
+        "dashboard.html",
+        {
+            "request": request,
+            "name": user.name,
+            "url_data":get_url,
+            "title": "Dashboard - Manage Your Links",
+        },
+    )
+
+@app.get("/create", response_class=HTMLResponse)
+def create(request: Request,db: Session = Depends(get_db),access_token: Optional[str] = Cookie(None),):
+
+    if access_token is None:
+        return RedirectResponse("/login")
+    
+    token_value = access_token.replace("Bearer ", "")
+    user_info = jwt.decode(token_value, SECRET_KEY, algorithms=[ALGORITHM])
+
+    username = user_info["user"]["username"]
+   
+    user = db.query(models.User).filter(models.User.username==username).first()
+
+    return templates.TemplateResponse("create.html", {"request": request, "name": user.name, "title": "Create Your Links"})
+
+
+@app.get("/custom/{id}", response_class=HTMLResponse)
+def custom(id:int,request: Request,db: Session = Depends(get_db),access_token: Optional[str] = Cookie(None),):
+
+    if access_token is None:
+        return RedirectResponse("/login")
+    
+    token_value = access_token.replace("Bearer ", "")
+    user_info = jwt.decode(token_value, SECRET_KEY, algorithms=[ALGORITHM])
+
+    username = user_info["user"]["username"]
+   
+    user = db.query(models.User).filter(models.User.username==username).first()
+    get_url = db.query(models.URL).filter(models.URL.id==id).first()
+
+    return templates.TemplateResponse("custom.html", {"request": request, "title": "Update Your Links", "name": user.name,"url_id":get_url})
 
 
 

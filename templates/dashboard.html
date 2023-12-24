@@ -1,161 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link
-      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
-      rel="stylesheet"/>
-    <title>{{ title }}</title>
-    {% block more_css %}
-    <link
-      rel="stylesheet"
-      href="{{url_for('static',path='css/dashboard.css')}}"
-    />
-    {% endblock %}
-  </head>
-
-  <body>
-    <div class="sidebar">
-    <div class="logo-details">
-      <i class='bx bxl-c-plus-plus'></i>
-      <span class="logo_name">Brandly</span>
-    </div>
-
-      <ul class="nav-links">
-        <li>
-          <a href="#" class="active">
-            <i class='bx bx-grid-alt' ></i>
-            <span class="links_name">Dashboard</span>
-          </a>
-        </li>
-
-        <!-- <li>
-           <a href="#">
-            <i class='bx bx-message' ></i>
-            <span class="links_name">Messages</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class='bx bx-cog' ></i>
-            <span class="links_name">Setting</span>
-          </a>
-        </li> -->
-        <li class="log_out"> 
-          <a href="#">
-            <i class='bx bx-log-out'></i>
-            <span class="links_name">Log out</span>
-          </a>
-        </li>
-      </ul>
-  </div>
-<section class="home-section">
-  <nav>
-    <div class="sidebar-button">
-        <i class='bx bx-menu sidebarBtn'></i>
-        <span class="dashboard">Dashboard</span>
-    </div>
-    <div class="search-box">
-        <input type="text" placeholder="Search...">
-        <i class='bx bx-search' ></i>
-    </div>
-    <div class="profile-details">
-     <span class="user_name">User</span>
-      <i class='bx bx-chevron-down' ></i>
-    </div>
- </nav>
-
-  <div class="home-content">
-
-      <div class="link-boxes">
-    
-        <div class="recent-link box">
-    
-          <div class="title">Your shortened links</div>
-    
-          <div class="link-details">
-    
-            <ul class="details">
-              <li class="topic">Date</li>
-              <li><a href="#">02 Jan 2021</a></li>
-              <li><a href="#">02 Jan 2021</a></li>
-              <li><a href="#">02 Jan 2021</a></li>
-              <li><a href="#">02 Jan 2021</a></li>
-              <li><a href="#">02 Jan 2021</a></li>
-              <li><a href="#">02 Jan 2021</a></li>
-              <li><a href="#">02 Jan 2021</a></li>
-              <li><a href="#">02 Jan 2021</a></li>
-              <li><a href="#">02 Jan 2021</a></li>
-            </ul>
-    
-            <ul class="details">
-              <li class="topic">Names</li>
-              <li><a href="#">insta</a></li>
-              <li><a href="#">fb</a></li>
-              <li><a href="#">insta</a></li>
-              <li><a href="#">youtube</a></li>
-              <li><a href="#">isnta</a></li>
-              <li><a href="#">fb</a></li>
-              <li><a href="#">youtube</a></li>
-              <li><a href="#">youtube</a></li>
-               <li><a href="#">insta</a></li>
-            </ul> 
-    
-            <ul class="details">
-            <li class="topic">Links</li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-            </ul> 
-            <ul class="details">
-            <li class="topic">Total clicks</li>
-            <li><a href="#">67</a></li>
-            <li><a href="#">300</a></li>
-            <li><a href="#">488</a></li>
-            <li><a href="#">133</a></li>
-            <li><a href="#">1999</a></li>
-            <li><a href="#">45</a></li>
-            <li><a href="#">5</a></li>
-             <li><a href="#">266</a></li>
-            <li><a href="#">35</a></li>
-            </ul>
-          
-            <ul class="details">
-            <li class="topic">Is Active</li>
-            <li><a href="#">YES</a></li>
-            <li><a href="#">NO</a></li>
-            <li><a href="#">YES</a></li>
-            <li><a href="#">NO</a></li>
-            <li><a href="#">YES</a></li>
-            <li><a href="#">YES</a></li>
-            <li><a href="#">YES</a></li>
-             <li><a href="#">NO</a></li>
-             <li><a href="#">NO</a></li>
-            </ul>
-          
-          </div>
-          
-            <!-- <div class="button">
-              <div class="right-side">
-              <a href="#">See All</a>
-              </div>
-            </div> -->
-        </div> 
-      </div>     
+{% extends "dashboard_layout.html" %} {% block body %}
+<div class="home-content">
+  <div class="link-boxes">
+    <div class="recent-link box">
+      <div class="title">Your shortened links</div>
+      <div class="link-details">
+        <table>
+          <thead class="theading">
+            <tr>
+              <th class="topic">Date</th>
+              <th class="topic">Title</th>
+              <th class="topic">Links</th>
+              <th class="topic">Total clicks</th>
+              <th class="topic">Status</th>
+              <!-- <th class="topic">Action</th> -->
+            </tr>
+          </thead>
+          <tbody>
+            {% for url in url_data %}
+            <tr>
+              <td>{{url.created_on.strftime('%d-%m-%Y')}}</td>
+              <td>{{url.title}}</td>
+              <td>
+                <a href="https://brandly.azurewebsites.net/{{url.key}}" target="_blank"
+                  >brandly/{{url.key}}</a
+                >
+                <!-- <p>{{url.target_url}}</p> -->
+              </td>
+              <td>{{url.click_count}}</td>
+              <!-- {% if url.is_active == True %}
+              <td style="color: green;">
+                Active
+              </td>
+              {% else %}
+              <td style="color: red;">
+               Deleted
+              </td>
+              {% endif %} -->
+              
+              <td><a href="/custom/{{url.id}}" class="edit-btn">Edit</a></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-</section>
-
-    {% block more_js %}
-    <script src="{{url_for('static',path='js/dashboard.js')}}"></script>
-    {% endblock %}
-  </body>
-</html>
+</div>
+{% endblock %}

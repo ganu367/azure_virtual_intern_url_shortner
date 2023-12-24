@@ -1,0 +1,28 @@
+{% extends "dashboard_layout.html" %} {% block body %}
+<div class="main_div">
+  <div class="title">create links</div>
+  <div id="success-message" class="hidden"></div>
+  <div id="error-message" class="hidden"></div>
+
+  <form method="post" id="create-form-api">
+    <div class="input_box">
+        <label for="url-title">Title(Optional)</label>
+        <input
+          type="text"
+          placeholder="Enter a title"
+          id="url-title"
+          name="url-title"
+        />
+    </div>    
+    <div class="input_box">
+        <label for="long-url">Long URL</label>
+        <input type="text" placeholder="Past long url" id="long-url" name="long-url" required />
+    </div>
+    
+    <div class="btn-submit">
+      <button type="submit" class="btn">create</button>
+    </div>
+  </form>
+</div>
+
+{% endblock %}

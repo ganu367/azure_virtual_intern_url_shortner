@@ -33,6 +33,7 @@ class ForgetPassword(BaseModel):
 
 
 class UrlCreate(BaseModel):
+    title: Optional[str]
     original_url: str
 
 
@@ -41,6 +42,7 @@ class UrlUpdateCount(BaseModel):
 
 
 class UrlUpdate(BaseModel):
+    title: Optional[str]
     key_url: str
 
 

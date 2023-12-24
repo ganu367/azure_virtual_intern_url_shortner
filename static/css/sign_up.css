@@ -137,19 +137,6 @@ form .input_box #hide-pass-icon,
   display: none;
 }
 
-/* form .option_div .check_box {
-  display: flex;
-  margin-top: 5px;
-  align-items: center;
-  justify-content: space-between;
-  }
-  
-  form .option_div .check_box label{
-    margin-left: 5px;
-    font-size: 0.8rem;
-    color: #333;
-  } */
-
 form .login_div {
   display: flex;
   justify-content: center;

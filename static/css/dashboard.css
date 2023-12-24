@@ -20,6 +20,7 @@
   height: 80px;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .sidebar .logo-details i{
   font-size: 28px;
@@ -30,8 +31,11 @@
 }
 .sidebar .logo-details .logo_name{
   color: #fff;
-  font-size: 24px;
+  font-size: 33px;
   font-weight: 500;
+}
+.sidebar .logo-details .brand-name{
+  color: #061D33;
 }
 .sidebar .nav-links{
   margin-top: 10px;
@@ -75,7 +79,7 @@
 .home-section{
   position: relative;
   background: #f5f5f5;
-  min-height: 100vh;
+  min-height: 10vh;
   width: calc(100% - 240px);
   left: 240px;
   transition: all 0.5s ease;
@@ -88,7 +92,7 @@
   display: flex;
   justify-content: space-between;
   height: 80px;
-  background: #fff;
+  background: #061D33;
   display: flex;
   align-items: center;
   position: fixed;
@@ -109,9 +113,13 @@
   font-size: 24px;
   font-weight: 500;
 }
+.home-section nav .sidebar-button span{
+  color: white;
+}
 nav .sidebar-button i{
   font-size: 35px;
   margin-right: 10px;
+  color: white;
 }
 .home-section nav .search-box{
   position: relative;
@@ -145,7 +153,7 @@ nav .search-box .bx-search{
   font-size: 22px;
   transition: all 0.4 ease;
 }
-.home-section nav .profile-details{
+/* .home-section nav .profile-details{
   display: flex;
   align-items: center;
   background: #F5F6FA;
@@ -154,7 +162,7 @@ nav .search-box .bx-search{
   height: 50px;
   min-width: 190px;
   padding: 0 15px 0 2px;
-}
+} */
 nav .profile-details img{
   height: 40px;
   width: 40px;
@@ -164,7 +172,7 @@ nav .profile-details img{
 nav .profile-details .user_name{
   font-size: 15px;
   font-weight: 500;
-  color: #333;
+  color: white;
   margin: 0 10px;
   white-space: nowrap;
 }
@@ -172,9 +180,11 @@ nav .profile-details i{
   font-size: 25px;
   color: #333;
 }
- .home-section .home-content{
+ .home-content{
   position: relative;
   padding-top: 104px;
+  margin-left: 14rem;
+  margin-top: 2rem;
 }
 
 .home-content .total-order{
@@ -184,42 +194,58 @@ nav .profile-details i{
 .home-content .link-boxes{
   display: flex;
   justify-content: space-between;
-  /* padding: 0 20px; */
+  padding: 0 20px;
 }
 
 /* left box */
  .home-content .link-boxes .recent-link{
-  width: 65%;
+  width: 85%;
   background: #fff;
-  padding: 20px 30px;
+  padding: 10px 30px;
   margin: 0 20px;
   border-radius: 12px;
-  box-shadow: 0 5px 10px rgba(72, 88, 203, 0.1)
+  /* box-shadow: 0 5px 10px rgba(72, 88, 203, 0.1) */
 } 
-.home-content .link-boxes .link-details{
+/* .home-content .link-boxes .link-details{
   display: flex;
   align-items: center;
   justify-content: space-between;
-} 
+}  */
 .link-boxes .box .title{
   font-size: 24px;
   font-weight: 500;
-  /* margin-bottom: 10px; */
+  margin-bottom: 15px;
 }
-.link-boxes .link-details li.topic{
-  font-size: 20px;
-  font-weight: 500;
+.link-boxes .link-details .topic{
+    font-size: 20px;
+    font-weight: 500;
+    background-color: #00000026;
+    text-align: center;
+    padding: 1px 15x;
+    border-radius: 0.09rem;
 }
-.link-boxes .link-details li{
+.link-boxes .link-details .theading{
+  margin: 0rem 1rem;
+
+}
+.link-boxes .link-details td{
   list-style: none;
-  margin: 8px 0;
+  text-align: center;
+  /* margin: 8px 5px; */
+  /* margin-bottom: 1.5rem; */
+  padding: 5px 10px;
 }
-.link-boxes .link-details li a{
-  font-size: 18px;
-  color: #333;
-  font-size: 400;
-  text-decoration: none;
+.link-boxes .link-details td:nth-child(2){
+text-align: start;
 }
+.link-boxes .link-details td:nth-child(3){
+  text-align: start;
+
+  }
+  .link-boxes .link-details td p{
+    font-size: 7px;
+    }
+  
 
 @media (max-width: 1240px) {
   .sidebar{
@@ -311,4 +337,166 @@ nav .profile-details i{
     left: 60px;
     width: calc(100% - 60px);
   }
+}
+
+/* create-link-dashboard-layour */
+
+:root {
+  --blue: #1e90ff;
+  --white: #ffffff;
+  --black: #000000;
+  --gray: #838e95;
+  --font-color: #869ab8;
+  --btn-color: #313232;
+  --text-color: #333;
+  --border-btn: 0.1rem;
+  --btn-margin: 0.5rem;
+  --btn-padding: 0.5rem;
+  --h2: 1.5rem;
+  --button-click-blue: rgb(53, 147, 241);
+  --insta-color: #e1306c;
+  --twitter-color: #00acee;
+  --facebook-color: #3b5998;
+}
+
+/* utility */
+.sub-head {
+  color: var(--black);
+  font-size: 1.18rem;
+  margin: 0.7rem 0.5rem;
+  text-align: left;
+}
+
+.sub-para {
+  color: var(--font-color);
+  padding: 0.5rem 0.515rem;
+  font-size: 1.111rem;
+  font-family: sans-serif;
+  text-align: left;
+}
+
+.btn {
+  text-decoration: none;
+  border: 0.1rem solid var(--btn-color);
+  border-radius: 0.3rem;
+  color: var(--btn-color);
+  padding: 0.5rem 1.19rem;
+  margin: 0.4rem 0.4rem;
+  align-items: center;
+}
+
+h1 {
+  color: var(--black);
+  font-size: 2.3rem;
+  margin: 0.7rem 1.5rem;
+}
+
+/* login-form goes from here */
+.main_div {
+  width: 45vw;
+  background: #fff;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+  margin: 6.5rem auto;
+}
+.main_div .title {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--blue);
+}
+
+.main_div .hidden {
+  display: none;
+}
+.main_div #success-message {
+  background-color: green;
+  color: white;
+  transition: opacity 5s ease-in-out;
+  padding: 0.5rem;
+  margin: 0.5rem 0rem;
+}
+.main_div #error-message {
+  background-color: red;
+  color: white;
+  transition: opacity 5s ease-in-out;
+  padding: 0.5rem;
+  margin: 0.5rem 0rem;
+}
+.main_div .show-message {
+  opacity: 1;
+  display: block;
+}
+form {
+  margin-top: 25px;
+}
+form .input_box {
+  height: 50px;
+  width: 100%;
+  position: relative;
+  margin-top: 2rem;
+}
+form .input_box .update-link-div{
+  display: flex;
+}
+.update-link-div input:first-child{
+margin-right: 0.5rem;
+}
+form .input_box input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 25px;
+  font-size: 17px;
+  transition: all 0.3s ease;
+  margin-top: 0.4rem;
+}
+form .input_box label {
+  font-size: 0.8rem;
+  color: #333;
+}
+form .input_box input:focus {
+  border-color: #c8e8e9;
+}
+form .input_box .icon {
+  position: absolute;
+  top: 105%;
+  right: 19px;
+  transform: translateY(-50%);
+  color: grey;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+form .input_box #hide-pass-icon,
+#hide-re-pass-icon {
+  display: none;
+}
+
+
+form .btn-submit {
+  width: 100%;
+  position: relative;
+  text-align: center;
+  margin-top: 1.4rem;
+}
+form .btn-submit button {
+  background: var(--blue);
+  color: #fff;
+  border: none;
+  width: 100%;
+  padding: 0.9rem 6.9rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s linear;
+  text-align: center;
+  margin: 1.5rem 0rem;
+}
+
+form .btn-submit button:hover {
+  background: var(--button-click-blue);
 }

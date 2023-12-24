@@ -1,0 +1,37 @@
+{% extends "dashboard_layout.html" %} {% block body %}
+<div class="main_div">
+  <div class="title">Customize links</div>
+  <div id="success-message" class="hidden"></div>
+  <div id="error-message" class="hidden"></div>
+
+  <form id="update-url-form">
+
+    <div class="input_box">
+        <label for="url-title-update">Title(Optional)</label>
+        <input
+          type="text"
+          placeholder="Enter a title"
+          id="url-title-update"
+          name="url-title-update"
+          value="{{url_id.title}}"
+        />
+    </div>    
+    
+    <div class="input_box">
+        <label for="long-url-update">Long URL</label>
+        <div class="update-link-div">
+            <input type="text" id="long-url-only" name="long-url-only" value="brandly.net/" readonly/>
+            <input type="text" id="long-url-update" name="long-url-update"  data-url-id="{{url_id.id}}" value="{{url_id.key}}" required />
+        </div>
+    </div>
+    
+    <div class="btn-submit">
+      <button type="submit" class="btn" id="submit-btn" >update</button>
+    </div>
+
+  </form>
+</div>
+{% block more_js %}
+<script src="https://brandly.azurewebsites.net/js/custom.js"></script>
+{% endblock %}
+{% endblock %}

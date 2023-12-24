@@ -37,6 +37,7 @@ class URL(Base):
     key = Column(String, nullable=False)
     # secret for manage url
     # secrete_key = Column(String, nullable=False)
+    title = Column(String)
     click_count = Column(Integer, default=0)
     target_url = Column(String, nullable=False)
     is_active = Column(Boolean, default=True)

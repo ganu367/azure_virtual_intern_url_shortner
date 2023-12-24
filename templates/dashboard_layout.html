@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"/>
+    <title>{{ title }}</title>
+    {% block more_css %}
+    {% endblock %}
+  <link rel="stylesheet" href="https://brandly.azurewebsites.net/css/dashboard.css">
+  </head>
+
+  <body>
+    <div class="sidebar">
+    <div class="logo-details">
+      <!-- <i class='bx bxl-c-plus-plus'></i> -->
+      <span class="logo_name">Brand<span class="brand-name">l</span>y</span>
+    </div>
+<hr>
+      <ul class="nav-links">
+        <li>
+          <a href="/dashboard">
+            <i class='bx bx-grid-alt' ></i>
+            <span class="links_name">Dashboard</span>
+          </a>
+        </li>
+
+        <li>
+           <a href="/create">
+            <i class='bx bx-message' ></i>
+            <span class="links_name">create</span>
+          </a>
+        </li>
+        
+        <li class="log_out"> 
+          <a href="/auth/logout">
+            <i class='bx bx-log-out'></i>
+            <span class="links_name">Log out</span>
+          </a>
+        </li>
+      </ul>
+  </div>
+  <section class="home-section">
+    <nav>
+      <div class="sidebar-button">
+          <i class='bx bx-menu sidebarBtn'></i>
+          <span class="dashboard">Dashboard</span>
+      </div>
+      
+      <div class="profile-details">
+            <span class="user_name">Welcome, {{name}} !</span>
+        <!-- <i class='bx bx-chevron-down' ></i> -->
+      </div>
+   </nav>
+</section>
+  {% block body %} {% endblock %}
+  {% block more_js %}
+  
+  {% endblock %}
+  <script src="https://brandly.azurewebsites.net/js/dashboard.js"></script>
+</body>
+</html>
