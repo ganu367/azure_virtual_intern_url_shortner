@@ -20,7 +20,7 @@ config = dotenv_values(".env")
 connect = load_dotenv()
 
 SECRET_KEY = os.getenv('SECRET_KEY')
-ALGORITHM = os.getenv('ALGORITHM')
+ALGORITHM_CODE = os.getenv('ALGORITHM')
 get_db = database.get_db
 
 models.Base.metadata.create_all(engine)
@@ -74,7 +74,7 @@ def dashboard(request: Request,db: Session = Depends(get_db),access_token: Optio
         return RedirectResponse("/login")
     
     token_value = access_token.replace("Bearer ", "")
-    user_info = jwt.decode(token_value, SECRET_KEY, algorithms=[ALGORITHM])
+    user_info = jwt.decode(token_value, SECRET_KEY, algorithms=[ALGORITHM_CODE])
 
     username = user_info["user"]["username"]
    
@@ -98,7 +98,7 @@ def create(request: Request,db: Session = Depends(get_db),access_token: Optional
         return RedirectResponse("/login")
     
     token_value = access_token.replace("Bearer ", "")
-    user_info = jwt.decode(token_value, SECRET_KEY, algorithms=[ALGORITHM])
+    user_info = jwt.decode(token_value, SECRET_KEY, algorithms=[ALGORITHM_CODE])
 
     username = user_info["user"]["username"]
    
@@ -114,7 +114,7 @@ def custom(id:int,request: Request,db: Session = Depends(get_db),access_token: O
         return RedirectResponse("/login")
     
     token_value = access_token.replace("Bearer ", "")
-    user_info = jwt.decode(token_value, SECRET_KEY, algorithms=[ALGORITHM])
+    user_info = jwt.decode(token_value, SECRET_KEY, algorithms=[ALGORITHM_CODE])
 
     username = user_info["user"]["username"]
    
