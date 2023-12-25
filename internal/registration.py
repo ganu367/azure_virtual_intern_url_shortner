@@ -27,7 +27,6 @@ def create_user(response: Response, request: Request, user_field: schemas.UserCr
 
         if (user_field.password == user_field.confirm_password):
 
-            try:
                 
                 new_user = models.User(name=user_field.name, username=user_field.username, created_by=user_field.username,
                                        password=hashing.Hash.bcrypt(user_field.password))
@@ -44,10 +43,6 @@ def create_user(response: Response, request: Request, user_field: schemas.UserCr
 
                 return {"response": response, "status": 200}
             
-            except Exception as e:
-                db.rollback()
-                raise HTTPException(status_code=status.HTTP_302_FOUND,
-                                   detail={"error": str(e.orig)})
 
         else:
             raise HTTPException(status_code=status.HTTP_302_FOUND,
