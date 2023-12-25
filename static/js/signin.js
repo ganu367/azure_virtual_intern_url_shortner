@@ -7,95 +7,95 @@ var password_field = document.getElementById('pass');
 
 signForm.addEventListener('submit', (event) => {
   event.preventDefault();
-  if( !validateUsername()||!validatePassword()){
+  if (!validateUsername() || !validatePassword()) {
     return;
-  }else{
+  } else {
     const usernameValue = document.getElementById('username').value.trim();
     const passwordValue = document.getElementById('pass').value.trim();
     
-   const data = new URLSearchParams({
+    const data = new URLSearchParams({
       'username': usernameValue,
       'password': passwordValue,
     });
 
     fetch('https://brandly.azurewebsites.net/auth/login', {
       method: 'POST',
-      redirect: 'follow',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
         'accept': 'application/json'
       },
-      body:data
+      body: data
     })
-    .then(response => response.json())
-    .then((response) => {
-      if (response.status === 200)
-      {
-        var successMessage = document.getElementById('success-message');
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+      return response.json();
+    })
+    .then(response => {
+      if (response.status === 200) {
         successMessage.classList.add("show-message");
         successMessage.style.display = "block";
         successMessage.innerHTML = 'Successfully login';
 
         window.location.href = '/dashboard';
        
-        //clear the text fields after successfully submited the login form
+        //clear the text fields after successfully submitted the login form
         document.getElementById('username').value = '';
         document.getElementById('pass').value = '';
-      }else{
-        var errorMessage = document.getElementById('error-message');
+      } else {
         errorMessage.classList.add("show-message");
         errorMessage.style.display = "block";
         errorMessage.innerHTML = response.detail;
     
-        //clear the text fields after successfully submited the login form
+        //clear the text fields after successfully submitted the login form
         document.getElementById('username').value = usernameValue;
         document.getElementById('pass').value = passwordValue;
       }
     })
-    .catch((error) => {
-      var errorMessage = document.getElementById('error-message');
+    .catch(error => {
       errorMessage.classList.add("show-message");
       errorMessage.style.display = "block";
       errorMessage.innerHTML = error.message;
-      console.log(error.message)
+      console.log(error.message);
   
-       //clear the text fields after successfully submited the form
+       //clear the text fields after successfully submitted the form
        document.getElementById('username').value = '';
        document.getElementById('pass').value = '';
     })
-    setTimeout(() => {
-      var successMessage = document.getElementById('success-message');
-      var errorMessage = document.getElementById('error-message');
-      successMessage.style.display = "none";
-      errorMessage.style.display = "none";
-    }, 1500);
+    .finally(() => {
+      setTimeout(() => {
+        successMessage.style.display = "none";
+        errorMessage.style.display = "none";
+      }, 1500);
+    });
   }
 });
 
-function validateUsername(){
+function validateUsername() {
   const usernameValue = username_field.value.trim();
-  if(usernameValue==='') {  
-    setError('Username fields is required');
+  if (usernameValue === '') {  
+    setError('Username field is required');
     return false;          
-    } else if (!isValidEmailPattern(usernameValue)) {
-      setError('Provide a valid username address');
-      return false;
-     }
+  } else if (!isValidEmailPattern(usernameValue)) {
+    setError('Provide a valid username address');
+    return false;
+  }
   return true;
 }
 
-function isValidEmailPattern(usernameValue){
+function isValidEmailPattern(usernameValue) {
   const emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return emailPattern.test(String(usernameValue).toLowerCase());
 }
 
-function validatePassword(){
- const passwordValue = password_field.value.trim();
- if(passwordValue===''){
-  setError('password fields is required');
-  return false;
- }
- return true;
+function validatePassword() {
+  const passwordValue = password_field.value.trim();
+  if (passwordValue === '') {
+    setError('Password field is required');
+    return false;
+  }
+  return true;
 }
 
 const setError = (message) => {
@@ -104,21 +104,19 @@ const setError = (message) => {
   errorMessage.innerText = message;
 }
 
+// Password toggle function
+function myPassword() {
+  var passwordHideIcon = document.getElementById("hide-password-icon");
+  var passwordShowIcon = document.getElementById("show-password-icon");
+  var passwordInput = document.getElementById("pass");
 
-//pasword toggel function
-function myPassowrd() {
-    var passwordHideIcon = document.getElementById("hide-password-icon");
-    var passwordShowIcon = document.getElementById("show-password-icon");
-    var passwordInput = document.getElementById("pass");
-
-    if (passwordInput.type === "password") {
-        passwordInput.type = "text";
-        passwordShowIcon.style.display = "none"
-        passwordHideIcon.style.display = "block"
-
-    } else { 
-        passwordInput.type = "password";
-        passwordShowIcon.style.display = "block"
-        passwordHideIcon.style.display = "none"
-    }
+  if (passwordInput.type === "password") {
+    passwordInput.type = "text";
+    passwordShowIcon.style.display = "none";
+    passwordHideIcon.style.display = "block";
+  } else { 
+    passwordInput.type = "password";
+    passwordShowIcon.style.display = "block";
+    passwordHideIcon.style.display = "none";
   }
+}
