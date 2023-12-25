@@ -24,6 +24,7 @@ sign_up_form.addEventListener('submit', (event) => {
       confirm_password: conPassValue,
     };
 
+    console.log(data);
 
     fetch('https://brandly.azurewebsites.net/auth/register', {
       method: 'POST',
@@ -47,11 +48,14 @@ sign_up_form.addEventListener('submit', (event) => {
         document.getElementById('pass').value = '';
         document.getElementById('re-pass').value = '';
 
+        console.log("status is ",response.status);
       }else{
         var errorMessage = document.getElementById('error-message');
         errorMessage.classList.add("show-message");
         errorMessage.style.display = "block";
         errorMessage.innerHTML = response.detail;
+
+        console.log("internal error hain",response.detail);
     
         //clear the text fields after successfully submited the signup form
         document.getElementById('name').value = nameValue;
@@ -71,6 +75,8 @@ sign_up_form.addEventListener('submit', (event) => {
        document.getElementById('username').value = '';
        document.getElementById('pass').value = '';
        document.getElementById('re-pass').value = '';
+
+      onsole.log("error hain",response.detail);
     })
     setTimeout(() => {
       var successMessage = document.getElementById('success-message');
