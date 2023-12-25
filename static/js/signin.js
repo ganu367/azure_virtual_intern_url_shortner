@@ -13,10 +13,10 @@ signForm.addEventListener('submit', (event) => {
     const usernameValue = document.getElementById('username').value.trim();
     const passwordValue = document.getElementById('pass').value.trim();
     
-    const data = {
-      username: document.getElementById('username').value,
-      password: document.getElementById('pass').value,
-    };
+   const data = new URLSearchParams({
+      'username': usernameValue,
+      'password': passwordValue,
+    });
 
     fetch('https://brandly.azurewebsites.net/auth/login', {
       method: 'POST',
@@ -25,14 +25,7 @@ signForm.addEventListener('submit', (event) => {
         'Content-Type': 'application/x-www-form-urlencoded',
         'accept': 'application/json'
       },
-      body: new URLSearchParams({
-        'grant_type': '',
-        'username': usernameValue,
-        'password': passwordValue,
-        'scope': '',
-        'client_id': '',
-        'client_secret': ''
-      })
+      body:data
     })
     .then(response => response.json())
     .then((response) => {
