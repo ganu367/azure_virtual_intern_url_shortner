@@ -51,7 +51,7 @@ sign_up_form.addEventListener('submit', (event) => {
         var errorMessage = document.getElementById('error-message');
         errorMessage.classList.add("show-message");
         errorMessage.style.display = "block";
-        errorMessage.innerHTML = response.detail.error;
+        errorMessage.innerHTML = response.detail;
     
         //clear the text fields after successfully submited the signup form
         document.getElementById('name').value = nameValue;
