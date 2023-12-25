@@ -66,4 +66,4 @@ jobs:
         with:
           app-name: 'brandly'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_790261E1A5354E62B91BF4FAE47CEA46 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_84262EA6EAD04DD392DE0229FDC12E0A }}
