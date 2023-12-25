@@ -12,6 +12,15 @@ import oauth2
 from fastapi.security import OAuth2PasswordRequestForm
 import os
 from typing import Optional
+from jose import jwt
+from dotenv import dotenv_values, load_dotenv
+from datetime import datetime,timedelta
+
+config = dotenv_values(".env")
+connect = load_dotenv()
+
+SECRET_KEY = os.getenv('SECRET_KEY')
+ALGORITHM = os.getenv('ALGORITHM')
 
 router = APIRouter(prefix="/auth", tags=["Authentication"])
 
@@ -39,21 +48,24 @@ def login(response: Response, request: Request, request_detail: OAuth2PasswordRe
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                                 detail="Incorrect Passwords")
         else:
-
             jwt_token = tokens.create_access_token(data={"user": {
                 "username": val_user.first().username, "isAdmin": val_user.first().is_admin}})
 
-            response = RedirectResponse(
-                url='/dashboard', status_code=status.HTTP_302_FOUND)
+            # response = RedirectResponse(
+            #     url='/dashboard', status_code=status.HTTP_302_FOUND)
             
-           
+            expires = datetime.utcnow() + timedelta(days=30)
+
+            # response.set_cookie(key="access_token",
+            #                     value=f"Bearer {jwt_token}",expires=expires, secure=True, httponly=True)
             response.set_cookie(
             key="access_token",
             value=f"Bearer {jwt_token}",
             httponly=True,
+            expires=expires,
             secure=True,
             samesite="none",
-             )
+        )
 
             return {"response": response, "status": 200}
 
@@ -106,4 +118,4 @@ def forgetPassword(username: str, request: schemas.ForgetPassword, db: Session =
 def logout(response: Response, request: Request):
     response = RedirectResponse("/login", status_code=302)
     response.delete_cookie(key='access_token')  # Corrected key
-    return response        
+    return response
