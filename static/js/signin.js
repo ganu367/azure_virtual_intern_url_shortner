@@ -12,6 +12,7 @@ signForm.addEventListener('submit', (event) => {
   }else{
     const usernameValue = document.getElementById('username').value.trim();
     const passwordValue = document.getElementById('pass').value.trim();
+    
     const data = {
       username: document.getElementById('username').value,
       password: document.getElementById('pass').value,

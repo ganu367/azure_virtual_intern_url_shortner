@@ -39,6 +39,7 @@ def login(response: Response, request: Request, request_detail: OAuth2PasswordRe
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                                 detail="Incorrect Passwords")
         else:
+
             jwt_token = tokens.create_access_token(data={"user": {
                 "username": val_user.first().username, "isAdmin": val_user.first().is_admin}})
 
@@ -52,7 +53,7 @@ def login(response: Response, request: Request, request_detail: OAuth2PasswordRe
             httponly=True,
             secure=True,
             samesite="none",
-        )
+             )
 
             return {"response": response, "status": 200}
 
