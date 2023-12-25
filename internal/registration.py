@@ -41,7 +41,7 @@ def create_user(response: Response, request: Request, user_field: schemas.UserCr
                 response.set_cookie(key="access_token",
                                     value=f"Bearer {jwt_token}", httponly=True)
 
-                return {"response": response, "status": 200}
+                return {"status": 200}
             
 
         else:
