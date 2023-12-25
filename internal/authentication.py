@@ -48,26 +48,31 @@ def login(response: Response, request: Request, request_detail: OAuth2PasswordRe
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                                 detail="Incorrect Passwords")
         else:
-            jwt_token = tokens.create_access_token(data={"user": {
-                "username": val_user.first().username, "isAdmin": val_user.first().is_admin}})
-
-            # response = RedirectResponse(
-            #     url='/dashboard', status_code=status.HTTP_302_FOUND)
-            
-            expires = datetime.utcnow() + timedelta(days=30)
-
-            # response.set_cookie(key="access_token",
-            #                     value=f"Bearer {jwt_token}",expires=expires, secure=True, httponly=True)
-            response.set_cookie(
-            key="access_token",
-            value=f"Bearer {jwt_token}",
-            httponly=True,
-            expires=expires,
-            secure=True,
-            samesite="none",
-        )
-
-            return {"response": response, "status": 200}
+            try:
+                jwt_token = tokens.create_access_token(data={"user": {
+                    "username": val_user.first().username, "isAdmin": val_user.first().is_admin}})
+    
+                # response = RedirectResponse(
+                #     url='/dashboard', status_code=status.HTTP_302_FOUND)
+                
+                expires = datetime.utcnow() + timedelta(days=30)
+    
+                # response.set_cookie(key="access_token",
+                #                     value=f"Bearer {jwt_token}",expires=expires, secure=True, httponly=True)
+                response.set_cookie(
+                key="access_token",
+                value=f"Bearer {jwt_token}",
+                httponly=True,
+                expires=expires,
+                secure=True,
+                samesite="none")
+    
+                return {"response": response, "status": 200}
+                
+            except Exception as e:
+               
+                raise HTTPException(status_code=status.HTTP_302_FOUND,
+                                    detail=f"{str(e.orig)}")
 
 
 @router.put("/update-password", status_code=status.HTTP_202_ACCEPTED)
