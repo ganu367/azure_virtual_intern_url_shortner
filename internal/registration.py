@@ -47,7 +47,7 @@ def create_user(response: Response, request: Request, user_field: schemas.UserCr
             except Exception as e:
                 db.rollback()
                 raise HTTPException(status_code=status.HTTP_302_FOUND,
-                                    detail=f"{str(e.orig)}")
+                                   detail={"error": str(e.orig)})
 
         else:
             raise HTTPException(status_code=status.HTTP_302_FOUND,
