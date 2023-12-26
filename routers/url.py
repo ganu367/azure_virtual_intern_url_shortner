@@ -18,8 +18,11 @@ from dotenv import dotenv_values, load_dotenv
 config = dotenv_values(".env")
 connect = load_dotenv()
 
-SECRET_KEY = os.getenv('SECRET_KEY')
-ALGORITHM_CODE = os.getenv('ALGORITHM')
+# SECRET_KEY = os.getenv('SECRET_KEY')
+# ALGORITHM_CODE = os.getenv('ALGORITHM')
+
+SECRET_KEY = "09d25e094faa6ca2556c818166b7a9563b93f7099f6f0f4caa6cf63b88e8d3e7"
+ALGORITHM = "HS256"
 
 
 router = APIRouter(prefix="/api", tags=["URL"])
@@ -68,7 +71,7 @@ def createUrlShort(url_fields: schemas.UrlCreate, db: Session = Depends(get_db),
         return RedirectResponse("/login")
     
     token_value = access_token.replace("Bearer ", "")
-    user_info = jwt.decode(token_value, SECRET_KEY, algorithms=[ALGORITHM_CODE])
+    user_info = jwt.decode(token_value, SECRET_KEY, algorithms=['HS256'])
 
     username = user_info["user"]["username"]
     print(username)
@@ -114,7 +117,7 @@ def allUrl(db: Session = Depends(get_db),access_token: Optional[str] = Cookie(No
         return RedirectResponse("/login")
     
     token_value = access_token.replace("Bearer ", "")
-    user_info = jwt.decode(token_value, SECRET_KEY, algorithms=[ALGORITHM_CODE])
+    user_info = jwt.decode(token_value, SECRET_KEY, algorithms=['HS256'])
 
     username = user_info["user"]["username"]
     print(username)
@@ -145,7 +148,7 @@ def customUrl(url_id: int, url_fields: schemas.UrlUpdate, db: Session = Depends(
         return RedirectResponse("/login")
     
     token_value = access_token.replace("Bearer ", "")
-    user_info = jwt.decode(token_value, SECRET_KEY, algorithms=[ALGORITHM_CODE])
+    user_info = jwt.decode(token_value, SECRET_KEY, algorithms=['HS256'])
 
     username = user_info["user"]["username"]
     print(username)
@@ -186,7 +189,7 @@ def deleteLinked(url_id: int, db: Session = Depends(get_db),access_token: Option
         return RedirectResponse("/login")
     
     token_value = access_token.replace("Bearer ", "")
-    user_info = jwt.decode(token_value, SECRET_KEY, algorithms=[ALGORITHM_CODE])
+    user_info = jwt.decode(token_value, SECRET_KEY, algorithms=['HS256'])
 
     username = user_info["user"]["username"]
     print(username)
