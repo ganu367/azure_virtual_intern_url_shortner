@@ -3,7 +3,7 @@
 <br>
 <h2>Project Details</h2>
 <b>Project Demo URL :</b> https://brandly.azurewebsites.net/ <br>
-<b>Demo Video URL :https://drive.google.com/file/d/1FqvY9tenn7dMHOGwjIoHVQ02AP96aY2L/view?usp=drive_link<br>
+<b>Demo Video URL :https://drive.google.com/file/d/1FqvY9tenn7dMHOGwjIoHVQ02AP96aY2L/view?usp=sharing<br>
 <b>Github Repository URL :</b> https://github.com/ganu367/azure_virtual_intern_url_shortner<br>
 <b>Industry :</b>ED Technology<br>
 <h2>Azure Services Used</h2>
