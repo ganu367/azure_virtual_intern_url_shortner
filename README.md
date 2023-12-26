@@ -1,11 +1,11 @@
 <h1>Microsoft-Future-Ready-Talent-Virtual-Internship-Project</h1>
-<h2>Project Title: Brandly:URL Shortnal Website</h2><b><a href="https://brandly.azurewebsites.net/">Brandly:URL Shortnal Website</b></a>
+<h2>Project Title: Brandly: URL Shortnal Website</h2><b><a href="https://brandly.azurewebsites.net/">Brandly:URL Shortnal Website</b></a>
 <br>
 <h2>Project Details</h2>
 <b>Project Demo URL :</b> https://brandly.azurewebsites.net/ <br>
-<b>Demo Video URL :https://drive.google.com/file/d/1Nlrc_KM9Ed9POH-7pauok_m4hyyVe5Xc/view?usp=drive_link<br>
+<b>Demo Video URL :https://drive.google.com/file/d/1FqvY9tenn7dMHOGwjIoHVQ02AP96aY2L/view?usp=drive_link<br>
 <b>Github Repository URL :</b> https://github.com/ganu367/azure_virtual_intern_url_shortner<br>
-<b>Industry :</b>Technology<br>
+<b>Industry :</b>ED Technology<br>
 <h2>Azure Services Used</h2>
 <h3>Core Azure Services:</h3>
 1. Azure Web App Service: Deployed URL Shortanl website in azure web services<br>
@@ -38,7 +38,7 @@ Looking into the future, the project has promising avenues for growth. Integrati
 <b>Azure QnA Chatbot AI Services:</b>
 
 <h2>Other Azure Technologies / Services</h2>
-<b>Azure Functions:</b><br><p align="justify">Azure Functions: Potential use for background processing tasks or additional functionalities.</p>
+<b>Azure Functions:</b><br><p align="justify">Potential use for background processing tasks or additional functionalities.</p>
 <b>Azure Key Vault: </b><br><p align="justify">Securely manages keys, secrets, and certificates used in the application.</p>
 
 
@@ -47,28 +47,28 @@ Looking into the future, the project has promising avenues for growth. Integrati
 <h3>Azure App Service</h3>
 <b>Description:</b><p align="justify">
 Azure Web App Service furnishes a scalable and dependable hosting setting for the guaranteeing smooth deployment and uninterrupted availability to enhance the user experience..</p>
-<img src="https://drive.google.com/file/d/1m85_TwNMpuvzU6oL4gh_NHV31y6kFdJi/preview" alt="azure-app-service"></img><br>
+<img src="https://github.com/ganu367/azure_virtual_intern_url_shortner/blob/main/Screenshots/azure-web-app.png" alt="azure-app-service"></img><br>
 
 <h3>Azure PostgresSQL DB</h3>
 <b>Description:</b><p align="justify">The project utilizes Azure PostresSQL DB as its database solution to effectively manage and store user interaction history. This globally-distributed, multi-model database service ensures high data availability, consistency.</p>
-<img src="https://drive.google.com/file/d/1RbsRfUsaggUaHgwoja_x55ZK9_Qqpqhh/preview" alt="azure-postgres-db-service"></img>
-<img src="https://drive.google.com/file/d/1aXroSmuLnhM5XS944n9AKzQVL2bLJuNE/preview" alt="azure-postgres-shell-db-service"></img><br>
+<img src="https://github.com/ganu367/azure_virtual_intern_url_shortner/blob/main/Screenshots/azure-database-01.png" alt="azure-postgres-db-service"></img>
+<img src="https://github.com/ganu367/azure_virtual_intern_url_shortner/blob/main/Screenshots/azure-database-02.png" alt="azure-postgres-shell-db-service"></img><br>
 
 <h3>Azure QnA AI Service</h3>
 <b>Description:</b><p align="justify">The Azure QnA Chatbot,to resolve user questions about URL shortening through Brandly</p>
-<img src="https://drive.google.com/file/d/1kYn7iZvadxGGqqKziWd1FTAJTYCLvLxn/preview" alt="azure-chatbot-ai-service"></img><br>
+<img src="https://github.com/ganu367/azure_virtual_intern_url_shortner/blob/main/Screenshots/azure-bot.png" alt="azure-chatbot-ai-service"></img><br>
 
 
 <h3>Working Live Project Display</h3>
 <b>Description:</b><p align="justify">I am providing the enclosed screenshot of the finalized operational website for your reference and review purposes.</p>
-<img src="https://drive.google.com/file/d/1yLgiZ-wNUCa0XMQUitSWXQO6PybuGISk/preview" alt="final-project-demo"></img>
+<img src="https://github.com/ganu367/azure_virtual_intern_url_shortner/blob/main/Screenshots/azure-bot-app.png" alt="final-project-demo"></img>
 
 
 <h3>Resource Visualizer</h3>
 <b>Description:</b><p align="justify">Attached herewith is the resource visualizer screenshot, presenting an overview of the utilized resources for reference and documentation purposes.</p>
-<img src="https://drive.google.com/file/d/13RU3mE-nna4ixoQFLw1ZOcxJz0wKjFz-/preview" alt="resource-display">
+<img src="https://github.com/ganu367/azure_virtual_intern_url_shortner/blob/main/Screenshots/azure-web-app.png" alt="resource-display">
 </img>
-<img src="https://drive.google.com/file/d/13RU3mE-nna4ixoQFLw1ZOcxJz0wKjFz-/preview" alt="resource-display">
+<img src="https://github.com/ganu367/azure_virtual_intern_url_shortner/blob/main/Screenshots/home-app.png" alt="resource-display">
 </img>
 
 
