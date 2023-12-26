@@ -48,7 +48,7 @@ def login(response: Response, request: Request, request_detail: OAuth2PasswordRe
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                                 detail="Incorrect Passwords")
         else:
-            try:
+            # try:
                 jwt_token = tokens.create_access_token(data={"user": {
                     "username": val_user.first().username, "isAdmin": val_user.first().is_admin}})
     
@@ -69,9 +69,9 @@ def login(response: Response, request: Request, request_detail: OAuth2PasswordRe
     
                 return {"response": response, "status": 200}
                 
-            except Exception as e:
-                raise HTTPException(status_code=status.HTTP_302_FOUND,
-                                    detail="something went wrong!")
+            # except Exception as e:
+            #     raise HTTPException(status_code=status.HTTP_302_FOUND,
+            #                         detail="something went wrong!")
 
 
 @router.put("/update-password", status_code=status.HTTP_202_ACCEPTED)
