@@ -19,8 +19,12 @@ from dotenv import dotenv_values, load_dotenv
 config = dotenv_values(".env")
 connect = load_dotenv()
 
-SECRET_KEY = os.getenv('SECRET_KEY')
-ALGORITHM_CODE = os.getenv('ALGORITHM')
+# SECRET_KEY = os.getenv('SECRET_KEY')
+# ALGORITHM_CODE = os.getenv('ALGORITHM')
+
+SECRET_KEY = "09d25e094faa6ca2556c818166b7a9563b93f7099f6f0f4caa6cf63b88e8d3e7"
+ALGORITHM = "HS256"
+
 get_db = database.get_db
 
 models.Base.metadata.create_all(engine)
@@ -74,7 +78,7 @@ def dashboard(request: Request,db: Session = Depends(get_db),access_token: Optio
         return RedirectResponse("/login")
     
     token_value = access_token.replace("Bearer ", "")
-    user_info = jwt.decode(token_value, SECRET_KEY, algorithms=[ALGORITHM_CODE])
+    user_info = jwt.decode(token_value, SECRET_KEY, algorithms=['HS256'])
 
     username = user_info["user"]["username"]
    
@@ -98,7 +102,7 @@ def create(request: Request,db: Session = Depends(get_db),access_token: Optional
         return RedirectResponse("/login")
     
     token_value = access_token.replace("Bearer ", "")
-    user_info = jwt.decode(token_value, SECRET_KEY, algorithms=[ALGORITHM_CODE])
+    user_info = jwt.decode(token_value, SECRET_KEY, algorithms=['HS256'])
 
     username = user_info["user"]["username"]
    
@@ -114,7 +118,7 @@ def custom(id:int,request: Request,db: Session = Depends(get_db),access_token: O
         return RedirectResponse("/login")
     
     token_value = access_token.replace("Bearer ", "")
-    user_info = jwt.decode(token_value, SECRET_KEY, algorithms=[ALGORITHM_CODE])
+    user_info = jwt.decode(token_value, SECRET_KEY, algorithms=['HS256'])
 
     username = user_info["user"]["username"]
    
