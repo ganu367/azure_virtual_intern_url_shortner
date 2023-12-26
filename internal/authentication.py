@@ -70,9 +70,8 @@ def login(response: Response, request: Request, request_detail: OAuth2PasswordRe
                 return {"response": response, "status": 200}
                 
             except Exception as e:
-               
                 raise HTTPException(status_code=status.HTTP_302_FOUND,
-                                    detail=f"{str(e.orig)}")
+                                    detail="something went wrong!")
 
 
 @router.put("/update-password", status_code=status.HTTP_202_ACCEPTED)
