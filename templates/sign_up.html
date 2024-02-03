@@ -57,12 +57,12 @@
 <!--css-->
 
 {% block more_css %}
-<link rel="stylesheet" href="https://brandly.azurewebsites.net/static/css/sign_up.css"/>
+<link rel="stylesheet" href="{{url_for('static',path='/css/sign_up.css')}}"/>
 {% endblock %}
 
 <!--Js -->
 {% block more_js %}
-<script src="https://brandly.azurewebsites.net/static/js/sign_up.js"></script> 
+<script src="{{url_for('static',path='/js/sign_up.js')}}"></script> 
 {% endblock %}
 
 <!--Js -->

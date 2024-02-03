@@ -27,7 +27,7 @@ create_form.addEventListener('submit', (event) => {
     original_url: original_urlValue,
   };
   console.log(data)
-  fetch('https://brandly.azurewebsites.net/api/create-url-short', {
+  fetch('/api/create-url-short', {
     method: 'POST',
     body: JSON.stringify(data),
     headers: {

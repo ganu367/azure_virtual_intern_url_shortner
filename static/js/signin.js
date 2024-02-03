@@ -18,7 +18,7 @@ signForm.addEventListener('submit', (event) => {
       password: document.getElementById('pass').value,
     };
 
-    fetch('https://brandly.azurewebsites.net/auth/login', {
+    fetch('/auth/login', {
       method: 'POST',
       redirect: 'follow',
       headers: {
@@ -113,7 +113,7 @@ const setError = (message) => {
 
 
 //pasword toggel function
-function myPassowrd() {
+function myPassowrd(){
     var passwordHideIcon = document.getElementById("hide-password-icon");
     var passwordShowIcon = document.getElementById("show-password-icon");
     var passwordInput = document.getElementById("pass");
@@ -123,7 +123,7 @@ function myPassowrd() {
         passwordShowIcon.style.display = "none"
         passwordHideIcon.style.display = "block"
 
-    } else { 
+    } else {
         passwordInput.type = "password";
         passwordShowIcon.style.display = "block"
         passwordHideIcon.style.display = "none"

@@ -11,7 +11,7 @@ shortLinkBtn.addEventListener('click', function() {
     const longUrlInput = document.getElementById('lng-url-text');
     const originalUrl = longUrlInput.value; 
   
-    fetch('https://brandly.azurewebsites.net/api/home/app', {
+    fetch('/api/home/app', {
       method: 'POST',
       body: JSON.stringify({ original_url: originalUrl }),
       headers: {

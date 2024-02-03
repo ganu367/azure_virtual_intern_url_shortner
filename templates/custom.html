@@ -20,7 +20,7 @@
     <div class="input_box">
         <label for="long-url-update">Long URL</label>
         <div class="update-link-div">
-            <input type="text" id="long-url-only" name="long-url-only" value="brandly.net/" readonly/>
+            <input type="text" id="long-url-only" name="long-url-only" value="http://127.0.0.1:8000/" readonly/>
             <input type="text" id="long-url-update" name="long-url-update"  data-url-id="{{url_id.id}}" value="{{url_id.key}}" required />
         </div>
     </div>
@@ -32,6 +32,6 @@
   </form>
 </div>
 {% block more_js %}
-<script src="https://brandly.azurewebsites.net/js/custom.js"></script>
+<script src="{{url_for('static',path='/js/custom.js')}}"></script>
 {% endblock %}
 {% endblock %}

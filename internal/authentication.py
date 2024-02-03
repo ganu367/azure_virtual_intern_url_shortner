@@ -62,7 +62,6 @@ def login(response: Response, request: Request, request_detail: OAuth2PasswordRe
             key="access_token",
             value=f"Bearer {jwt_token}",
             httponly=True,
-            expires=expires,
             secure=True,
             samesite="none",
         )

@@ -10,8 +10,7 @@
     </h1>
     <p>
       Explore our URL shortener tools that prioritize security and scalability.
-      Protect your links with strong encryption, and tailor the settings to your
-      specific needs.
+      Protect your links with strong encryption.
     </p>
     <div class="btn-items">
       <input
@@ -38,19 +37,14 @@
     </div>
   </div>
   <div class="img-intro">
-<!--     <img
+    <img
       src="{{url_for('static',path='images/url_short.svg')}}"
-      alt=""
-      srcset=""
-    /> -->
-     <img
-      src="https://brandly.azurewebsites.net/static/images/url_short.svg"
       alt=""
       srcset=""
     />
   </div>
 </section>
-<hr />
+
 <section class="features" id="services">
   <!-- <h1>Our  Features</h1> -->
 
@@ -97,7 +91,6 @@
     <a href="" class="btn">Submit</a>
   </div>
 </section> -->
-<hr />
 <!-- faq -->
 <section id="faq-section">
   <div class="faqs-container">
@@ -166,6 +159,6 @@
 
 {% endblock %} -->
 {% block more_js %}
-<script src="https://brandly.azurewebsites.net/static/js/index.js"></script>
+<script src="{{url_for('static',path='js/index.js')}}"></script>
 {% endblock %} 
 {% endblock %}

@@ -778,3 +778,94 @@
 # validators==0.20.0
 # whichcraft==0.6.1
 # yarl==1.9.4
+
+
+# <button id="chatButton">Chat with us</button>
+# <button id="closeButton">×</button>
+# <div id="webchatContainer"></div>
+
+
+# /*chat bot*/
+# <script src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>
+
+# #chatButton {
+#     position: fixed;
+#     bottom: 40px;
+#     right: 20px;
+#     background-color: dodgerblue;
+#     color: #ffffff;
+#     padding: 12px;
+#     border: none;
+#     border-radius: 5px;
+#     cursor: pointer;
+#     /* z-index: 2; */
+# }
+
+# #webchatContainer {
+#     display: none;
+#     position: fixed;
+#     bottom: 20px;
+#     right: 20px;
+#     width: 300px;
+#     height: 400px;
+#     border: 1px solid #ccc;
+#     border-radius: 5px;
+#     overflow: hidden;
+#     /* z-index: 1; */
+# }
+
+# #closeButton {
+#     display: none;
+#     position: fixed;
+#     bottom: 436px;
+#     right: 40px;
+#     background-color: transparent;
+#     border: none;
+#     padding: 5px;
+#     cursor: pointer;
+#     z-index: 1;
+#     font-size: 30px;
+# }
+
+
+# // azure bot implement
+# document.addEventListener('DOMContentLoaded', function () {
+#   const chatButton = document.getElementById('chatButton');
+#   const webchatContainer = document.getElementById('webchatContainer');
+#   const closeButton = document.getElementById('closeButton');
+
+#   chatButton.addEventListener('click', async function () {
+      
+#       const res = await fetch('https://directline.botframework.com/v3/directline/tokens/generate', {
+#           method: 'POST',
+#           headers: { 'Authorization': 'Bearer JS8B8oqLjfw.GY2L8zoJTmwammep5oPep9D9OOiIaRlMY35IhSlG1pI' }
+#       });
+#       const { token } = await res.json();
+
+#       const styleSet = window.WebChat.createStyleSet({
+         
+#       });
+
+#       window.WebChat.renderWebChat(
+#           {
+#               directLine: window.WebChat.createDirectLine({ token }),
+#               userID: 'WebChat_UserId',  
+#               username: 'Web Chat User',  
+#               locale: 'en-US',
+#               styleSet
+#           },
+#           document.getElementById('webchatContainer')
+#       );
+
+      
+#       webchatContainer.style.display = 'block';
+#       closeButton.style.display = 'block';
+#       chatButton.style.display = 'none';
+#   });
+
+#   closeButton.addEventListener('click', function () {
+#     webchatContainer.style.display = 'none';
+#     closeButton.style.display = 'none';
+#     chatButton.style.display = 'block';
+# });
+# });

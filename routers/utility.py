@@ -35,7 +35,7 @@ def forwadToRedirect(url_key: str, request: Request, db: Session = Depends(get_d
 
     if not get_url.first():
         raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST, detail=f"https://brandly.azurewebsites.net/{url_key} not found")
+            status_code=status.HTTP_400_BAD_REQUEST, detail=f"http://127.0.0.1:8000/{url_key} not found")
 
     else:
         if click_count_update := get_url.filter(models.URL.is_active == True).first():
@@ -48,4 +48,4 @@ def forwadToRedirect(url_key: str, request: Request, db: Session = Depends(get_d
                     status_code=status.HTTP_400_BAD_REQUEST, detail=f"{e.orig}")
         else:
             raise HTTPException(
-                status_code=status.HTTP_400_BAD_REQUEST, detail=f"https://brandly.azurewebsites.net/{url_key} not found")
+                status_code=status.HTTP_400_BAD_REQUEST, detail=f"http://127.0.0.1:8000/{url_key} not found")

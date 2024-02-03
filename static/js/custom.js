@@ -17,7 +17,7 @@ update_form.addEventListener('submit', (event) => {
   };
   
 
-  fetch(`https://brandly.azurewebsites.net/api/custom-url/${url_id}`, {
+  fetch(`/api/custom-url/${url_id}`, {
     method: 'PUT',
     body: JSON.stringify(data),
     headers: {

@@ -25,7 +25,7 @@ sign_up_form.addEventListener('submit', (event) => {
     };
 
 
-    fetch('https://brandly.azurewebsites.net/auth/register', {
+    fetch('/auth/register', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
